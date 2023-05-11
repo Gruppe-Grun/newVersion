@@ -1,0 +1,134 @@
+body {
+    font-family: 'Pacifico', cursive;
+    font-size: 25px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* nav design {*/ 
+header {
+    background-color: lightgray;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.nav-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+.nav-links a:hover {
+    color: #777;
+}
+
+.nav-item.active {
+    font-weight: bold;
+    color: #222;
+}
+/* button design }*/ 
+
+/* main design {*/ 
+
+main {
+    flex-grow: 1;
+}
+
+.green-text {
+    color: green;
+}
+
+.application-form {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: lightgray;
+    padding: 20px;
+    width: 800px;
+    border-radius: 10px;
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 40%;
+}
+
+.application-form label {
+    font-weight: bold;
+}
+/* main design }*/ 
+
+/* button design {*/ 
+.buttons-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.square-btn {
+    background-color: lightgray;
+    border: none;
+    color: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.square-btn:hover {
+    background-color: lightgreen;
+}
+/* button design }*/ 
+
+/* footer design {*/ 
+footer {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    background-color: lightgray;
+}
+
+.impressum {
+    display: inline-block;
+    position: relative;
+}
+
+.impressum:hover .tooltip {
+    display: block;
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    z-index: 1;
+    margin-bottom: 10px;
+}
+
+/* footer design }*/ 
