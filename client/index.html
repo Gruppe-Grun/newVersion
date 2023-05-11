@@ -1,44 +1,28 @@
 <!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="client.js"></script>
+    <title>Typescript Starter</title>
+  </head>
 
-<html>
-
-<head>
-
-  <meta charset="utf-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="stylesheet" type="text/css" href="style.css"> <!--css pfad-->
-
-  <link rel="icon" href="pictures/Logobrowser-Projektwoche-v1.png"/>
-
-  <title>Future Forward</title>
-
-  <div class="content-container">
-
-  <div class="content">
-
-  <div class="login-container">
-
-    <h1 class="log-reg-h1">Login</h1>
-
-         <div id="message"></div>
+  <body>
+    <div id="main-container">
+      <div id="logo-container">
+        <h2>Login</h2>
+        <div id="message"></div>
+      </div>
       <form id="login-form">
-        <input type="text" id="username" name="username" placeholder="Benutzername" required> <br>
+        <input type="text" id="username" name="username" placeholder="Benutzername" required>
         <input type="password" id="password" name="password" placeholder="Passwort" required>
         <button type="submit">Anmelden</button>
       </form>
       <p class="switch-form">Sie haben noch keinen Account? <a href="signup.html">Registrieren</a></p>
     </div>
+  </body>
 
-  <p class="register">You don't have a account? <a href="./signup.html">Register here</a></p>
 
- </div>
-
-</div>
-
-</div>
-
-</head>
-
-<body>
+</html>

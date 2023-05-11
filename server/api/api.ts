@@ -41,32 +41,38 @@ export class API {
   }
 
   loginUser = async (req: Request, res: Response) => {
-    const { username, password } = req.body
-
+    const { username, password } = req.body;
+  
     try {
       const result = await this.database.executeSQL(
         `SELECT * FROM users WHERE Username='${username}'`
-      )
-      const user = result[0]
-
+      );
+      const user = result[0];
+  
       if (!user) {
-        return res.status(401).json({ message: 'Invalid username or password' })
+        return res.status(401).json({ message: 'Invalid username or password' });
       }
-
-      const isPasswordCorrect = await bcrypt.compare(password, user.password)
-
+  
+      // Add console.log statements to debug the issue
+      console.log('Provided password:', password);
+      console.log('Stored password:', user.Password);
+  
+      const isPasswordCorrect = await bcrypt.compare(password, user.Password);
+  
       if (!isPasswordCorrect) {
-        return res.status(401).json({ message: 'Invalid username or password' })
+        return res.status(401).json({ message: 'Invalid username or password' });
       }
-
-      const token = jwt.sign({ id: user.id, username: user.name }, process.env.JWT_SECRET as string, {
+  
+      const token = jwt.sign({ id: user.StudentID, username: user.Username }, process.env.JWT_SECRET as string, {
         expiresIn: '1h',
-      })
-
-      res.status(200).json({ token, message: 'Logged in successfully' })
+      });
+  
+      res.status(200).json({ token, message: 'Logged in successfully' });
     } catch (error) {
-      console.log(error)
-      res.status(500).json({ message: 'Error logging in' })
+      console.log(error);
+      res.status(500).json({ message: 'Error logging in' });
     }
   }
+  
+  
 }

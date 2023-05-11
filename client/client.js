@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (response.ok) {
           localStorage.setItem('token', data.token);
-          window.location.href = '/mainPage/index.html'
+          window.location.href = '/mainPage/homepage.html'
           // Redirect to the main application page or handle navigation
         } else {
           messageElement.innerHTML = data.message;
