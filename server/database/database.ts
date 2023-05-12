@@ -1,7 +1,6 @@
 import mariadb from 'mariadb'
 import { Pool } from 'mariadb'
-import { USER_TABLE, DB1, DB2, DB3, DB4} from './schema'
-
+import { USER_TABLE, APPLICATION_TABLE } from './schema'
 export class Database {
   // Properties
   private _pool: Pool
@@ -19,11 +18,8 @@ export class Database {
   // Methods
   private initializeDBSchema = async () => {
     console.log('Initializing DB schema...')
-    await this.executeSQL(DB1)
-    await this.executeSQL(DB2)
-    await this.executeSQL(DB3)
     await this.executeSQL(USER_TABLE)
-    await this.executeSQL(DB4)
+    await this.executeSQL(APPLICATION_TABLE)
   }
 
   public executeSQL = async (query: string) => {

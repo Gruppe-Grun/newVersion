@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eintrag Ändern</title>
     <link rel="stylesheet" href="style.css">
+    <script src="./changeDelete.js"></script>
 </head>
 <body>
     <header>
@@ -12,61 +13,60 @@
             <div class="nav-links">
                 <a href="index.html" class="nav-item">Startseite</a>
                 <a href="eintragErstellen.html" class="nav-item">Eintrag Erstellen</a>
-                <a href="#" class="nav-item">Eintrag Abrufen</a>
+                <a href="../look.html" class="nav-item">Eintrag Abrufen</a>
                 <a href="#" class="nav-item active">Eintrag Ändern</a>
             </div>
         </nav>
     </header>
     <main>
-        <form class="application-form">
+        <form class="application-form" id="application-form-Change">
             <div class="form-container">
                 <div class="form-column">
                     <label for="firstName">Vorname</label>
                     <input type="text" id="firstName" name="firstName" placeholder="Dein Vorname *" required>
-                    
+        
                     <label for="lastName">Nachname</label>
                     <input type="text" id="lastName" name="lastName" placeholder="Dein Nachname *" required>
-                    
+        
                     <label for="applicantImage">Bild des Bewerbers</label>
                     <input type="file" id="applicantImage" name="applicantImage" accept="image/*">
-                    
+        
                     <label for="address">Strasse und Hausnummber</label>
                     <input type="text" id="address" name="address" required>
-                    
+        
                     <label for="cityAndZip">Ort und Plz</label>
                     <input type="text" id="cityAndZip" name="cityAndZip" placeholder="">
-                    
+        
                     <label for="country">Land</label>
                     <input type="text" id="country" name="country">
-                    
+        
                     <label for="field">Fachrichtung</label>
                     <input type="text" id="field" name="field">
-                    
+        
                     <label for="class">Klasse</label>
                     <input type="text" id="class" name="class">
-                    
+        
                     <label for="qvYear">Jahr der QV</label>
                     <input type="number" id="qvYear" name="qvYear">
-                    
+        
                     <label for="certificate">Note/ Zeugnis</label>
                     <input type="file" id="certificate" name="certificate" accept="application/pdf">
-                    
+        
                     <label for="noteQV">Note QV</label>
                     <input type="file" id="noteQV" name="noteQV" accept="application/pdf">
-
+        
                     <label for="internshipContract">Praktikumsvertrag</label>
                     <input type="file" id="internshipContract" name="internshipContract" accept="application/pdf">
-                    
+        
                     <label for="efzCopy">Kopie EFZ</label>
-                    <input type="file" id="efzCopy" name="efzCopy" accept="application/pdf">
-
+                    <input type="file" id="efzCopy" name="efzCopy" accept="application/pdf">        
                 </div>
                 <div class="form-column">
                     <label for="firstName">Erziehungsberechtigte</label>
-                    <input type="text" id="firstName" name="firstName" placeholder="Vor und Nachnach (Nur unter 18)" >
+                    <input type="text" id="firstNameP" name="firstName" placeholder="Vor und Nachnach (Nur unter 18)" >
 
                     <label for="applicationDate">Datum Bewerbung</label>
-                    <input type="date" id="applicationDate" name="applicationDate">
+                    <input type="date" id="applicationDateP" name="applicationDate">
                     
                     <label for="internshipCompany">Praktikums Firma</label>
                     <input type="text" id="internshipCompany" name="internshipCompany">
@@ -101,14 +101,24 @@
                     <label for="ahvNumber">AHV Nummber</label>
                     <input type="text" id="ahvNumber" name="ahvNumber" placeholder="xxx.xxxx.xxxx.xx">
 
+                    <div class="buttons-container">
+                        <button class="square-btn">Eintrag Bearbeiten</button>
+
+                    </div>
+
                 </div>
             </div>
+
+        </div>
         </form>
-    </main>
-    <div class="buttons-container">
-        <button class="square-btn">Eintrag Bearbeiten</button>
-        <button class="square-btn">Eintrag Löschen</button>
-    </div>
+
+        <div class="buttons-container">
+            <form id="deleteForm">
+              <input class="square-btn" type="submit" value="Eintrag Löschen" id="deleteButton">
+            </form>
+          </div>
+        </main>
+
     <footer>
         <div class="impressum">
             <span>Impressum</span>
@@ -123,6 +133,5 @@
             </div>
         </div>
     </footer>
-    <script src="scripts.js"></script>
 </body>
 </html>

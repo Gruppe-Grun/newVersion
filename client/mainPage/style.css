@@ -8,6 +8,12 @@ body {
     min-height: 100vh;
 }
 
+#showCookie {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
 /* nav design {*/ 
 header {
     background-color: lightgray;

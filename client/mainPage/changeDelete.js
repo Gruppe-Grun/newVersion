@@ -1,6 +1,4 @@
-
-
-//get token from local storage
+//get token form local storage
 
 const token = localStorage.getItem('token');
 
@@ -8,9 +6,8 @@ const token = localStorage.getItem('token');
 if (!token) {
     window.location.href = '/index.html';
     }
-
     document.addEventListener('DOMContentLoaded', async () => {
-        const applicationForm = document.getElementById('application-form-Create');
+        const applicationForm = document.getElementById('application-form-Change');
         applicationForm.addEventListener('submit', async (e) => {
           e.preventDefault();
 
@@ -41,9 +38,9 @@ if (!token) {
           const applicationapprovalDate = document.getElementById('mbaApprovalDate').value;
           const applicationbirthDate = document.getElementById('birthDate').value;
           const applicationahvNumber = document.getElementById('ahvNumber').value;
-      
-const application = await fetch('/application', {
-    method: 'POST',
+
+const application = await fetch('/application:id', {
+    method: 'PUT',
     headers: {
         'Content-Type': 'application/json',
         Authorization: token,
@@ -77,14 +74,34 @@ const application = await fetch('/application', {
         applicationahvNumber,
     }),
 });
-
-const data = await application.json();
 if (application.ok) {
-    window.location.href = '/mainPage/index.html'
-    warn('Application created')
+    window.location.href = '/mainPage/index.html';
 }
 else {
-    console.warn('Error creating application');
+    alert('Error updating application');
 }
 });
 });
+
+const username = document.cookie.split('=')[1];
+
+document.addEventListener('DOMContentLoaded', () => {
+    const deleteForm = document.getElementById('deleteForm');
+    deleteForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const response = await fetch(`/article/delete/${username}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: token,
+        },
+      });
+      if (response.ok) {
+        window.location.href = '/mainPage/index.html';
+        console.warn('Article deleted');
+      } else {
+        alert('Error deleting article');
+      }
+    });
+  });
+

@@ -9,9 +9,6 @@ if (location.host.includes('localhost')) {
       'script>'
   )
 }
-
-console.log('This is a Test')
-
 document.addEventListener('DOMContentLoaded', function () {
   const loginForm = document.getElementById('login-form');
   const signupForm = document.getElementById('signup-form');
@@ -32,10 +29,14 @@ document.addEventListener('DOMContentLoaded', function () {
   if (loginForm) {
     loginForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-
+  
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
 
+      //get username and set it into a cookie
+
+      document.cookie = "username=" + username;
+  
       if (!isValidUsername(username) || !isValidPassword(password)) {
         messageElement.innerHTML = 'Invalid username or password format';
         return;
@@ -48,11 +49,12 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           body: JSON.stringify({ username, password }),
         });
-
+  
         const data = await response.json();
-
+  
         if (response.ok) {
-          localStorage.setItem('token', data.token);
+          const token = data.token;
+          localStorage.setItem('token', token); // Save token to localStorage
           window.location.href = '/mainPage/index.html'
           // Redirect to the main application page or handle navigation
         } else {
@@ -64,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+  
 
   if (signupForm) {
     signupForm.addEventListener('submit', async (e) => {
@@ -100,3 +103,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
